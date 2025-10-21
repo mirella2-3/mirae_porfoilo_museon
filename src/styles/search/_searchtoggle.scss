@@ -1,0 +1,68 @@
+#filterSidebar {
+    // border: 1px solid #000;
+    position: absolute;
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    .overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* 사이드바 전체 */
+    .sidebar-bookend {
+        position: fixed;
+        top: 0;
+        left: -300px; /* 총 폭만큼 숨기기 */
+        width: 300px;
+        height: 100%;
+        background: #222;
+        color: white;
+        z-index: 1100;
+        transition: left 0.3s ease;
+        padding: 60px 20px 20px 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar-bookend.open {
+        left: 0;
+    }
+
+    /* 사이드바 내부 리스트 */
+    .sidebar-bookend ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sidebar-bookend ul li {
+        margin: 15px 0;
+    }
+
+    .sidebar-bookend ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+    }
+
+    /* 책꽂이처럼 항상 보이는 얇은 트리거 */
+    .bookend-trigger {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 100%;
+        background: #444;
+        z-index: 1099;
+        cursor: pointer;
+    }
+}

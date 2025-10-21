@@ -1,0 +1,86 @@
+:root {
+    --c-text-primary: #282a32;
+    --c-text-secondary: #686b87;
+    --c-text-action: #404089;
+    --c-accent-primary: #12b560;
+    --c-border-primary: #ffffff;
+    --c-background-primary: #ffffff;
+    --c-background-secondary: #ffffff;
+    --c-background-tertiary: #ffffff;
+    --c-background-quaternary: #ffffff;
+}
+
+img {
+    display: block;
+}
+
+:focus {
+    outline: 0;
+}
+
+#MypageStyle {
+    margin: 100px 0;
+
+    background-color: var(--c-background-secondary);
+    color: var(--c-text-primary);
+    .responsive-wrapper {
+        width: 1400px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        .horizontal-tabs {
+            width: 200px;
+            height: 537px;
+
+            > a {
+                display: block;
+                margin-bottom: 12px;
+                color: #000;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                padding: 0 30px;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 2px;
+                    height: 100%;
+                    background-color: #12b560;
+                    transform: scaleY(0);
+                    transform-origin: top;
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover {
+                    &::before {
+                        transform: scaleY(
+                            1
+                        ); /* 호버 시 Y축 크기를 1로 만들어서 밑줄이 위로 올라오는 효과 */
+                    }
+                }
+            }
+
+            .sub {
+                p {
+                    color: #000;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: normal;
+                    display: block;
+                    margin-bottom: 14px;
+                }
+                margin-bottom: 40px;
+                margin-top: 12px;
+            }
+        }
+    }
+    .content {
+        width: 1140px;
+    }
+}

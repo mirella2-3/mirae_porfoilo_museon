@@ -1,0 +1,21 @@
+#root {
+    margin: 0 auto;
+}
+
+body {
+    font-weight: 400;
+}
+
+.card {
+}
+
+.read-the-docs {
+    color: #888;
+}
+html,
+body {
+    width: 100%;
+    /* max-width: 1920px;F */
+    overflow-x: hidden;
+    margin: 0 auto;
+}

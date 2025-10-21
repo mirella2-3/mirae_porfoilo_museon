@@ -1,0 +1,20 @@
+@use "../../styles/utils" as *;
+
+.about {
+  width: 100%;
+  .inner {
+  }
+  h2 {
+    font-size: 4rem;
+  }
+}
+@include tablet {
+  .about {
+    .inner {
+      padding: 2rem 0;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}

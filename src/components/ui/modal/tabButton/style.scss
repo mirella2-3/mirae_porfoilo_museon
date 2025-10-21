@@ -1,0 +1,54 @@
+@use '../../../styles/utils/' as *;
+
+.tab-button {
+    width: vw(180px);
+    height: vw(50px);
+    box-sizing: border-box;
+    @include font-20px-M;
+    margin-right: vw(30px);
+    background-color: $greyscale-200;
+    &:hover {
+        background-color: $greyscale-400;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+    &.g {
+        @include font-20px-B;
+    }
+    &-2 {
+        @include font-16px-B;
+        color: $greyscale-1100;
+        border: none;
+        background-color: transparent;
+        padding: vw(10px) vw(5px);
+        transition: 0.3s;
+        position: relative;
+        &:not(:last-child) {
+            margin-right: vw(15px);
+        }
+        &::after {
+            position: absolute;
+            content: '';
+            background-color: $greyscale-1100;
+            width: 0%;
+            height: vw(2px);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 0.3s;
+        }
+        &.on {
+            &::after {
+                width: 100%;
+            }
+        }
+        &:hover {
+            background-color: $greyscale-200;
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}

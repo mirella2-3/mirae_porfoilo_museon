@@ -1,0 +1,132 @@
+#mydetailsStyle {
+    .inner {
+        width: 1140px;
+    }
+    h1 {
+        color: #000;
+        font-family: 'Inria Serif';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-bottom: 60px;
+    }
+
+    .topWrap {
+        display: flex;
+        justify-content: space-between;
+        height: 70px;
+        margin: 15px 0;
+        width: 100%;
+        align-items: center;
+
+        .profileBox {
+            display: flex;
+            gap: 40px;
+
+            text-align: center;
+            line-height: 70px;
+
+            img {
+                width: 70px;
+
+                border-radius: 50px;
+            }
+            .nickname {
+                align-items: center;
+                margin: 20.5px 0;
+                width: 300px;
+                height: 30px;
+
+                display: flex;
+                justify-content: space-between;
+                color: #000;
+                font-family: 'Inria Serif';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                input {
+                    margin-right: 10px;
+                }
+                button {
+                    border-radius: 50px;
+                    background: #fff;
+                    border: none;
+                    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
+                    padding: 6px 10px;
+                    margin-right: 10px;
+                }
+            }
+        }
+        .profileMembership {
+            display: flex;
+            height: 35px;
+            text-align: right;
+
+            span {
+                color: #000;
+                font-family: 'Inria Serif';
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 400;
+
+                margin-right: 20px;
+                width: 350px;
+                line-height: 30px;
+
+                strong {
+                    font-weight: 700;
+                    color: #149050;
+                }
+            }
+            button {
+                border-radius: 50px;
+                border: 1px solid #12b560;
+                display: flex;
+                padding: 10px 20px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                color: #12b560;
+                text-align: center;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 1;
+                background: #fff;
+                cursor: pointer;
+                &:hover {
+                    background: #12b560;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .middleWrap {
+        margin-bottom: 40px;
+        margin-top: 40px;
+        ul {
+            display: flex;
+            gap: 30px;
+            li {
+                font-size: 15px;
+                padding: 12px 22px;
+                border: 1px solid #ddd;
+                border-radius: 100px;
+                cursor: pointer;
+                line-height: 1;
+
+                &:hover {
+                    background: #12b560;
+                    color: #fff;
+                    border: 1px solid #12b560;
+                }
+                &.active {
+                    background: #12b560;
+                    color: #fff;
+                    border: 1px solid #12b560;
+                }
+            }
+        }
+    }
+}

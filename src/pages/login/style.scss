@@ -1,0 +1,21 @@
+@use "../../styles/utils" as *;
+
+#Join {
+  width: 100vw;
+  .inner {
+    width: 800px;
+    margin: auto;
+    padding: 100px 0;
+  }
+}
+
+@include tablet {
+  .intro {
+    .inner {
+      padding: 2rem 0;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}

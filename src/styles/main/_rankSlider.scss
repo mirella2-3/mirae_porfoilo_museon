@@ -1,0 +1,153 @@
+#rankSlider {
+    font-size: 14px;
+    color: #000;
+    height: 100vh;
+    background: #f5f5f5;
+    .inner {
+        width: 1400px;
+        padding: 120px 0;
+        margin: 120px 260px 0;
+    }
+    .wrap {
+        display: flex;
+        gap: 40px;
+        align-items: end;
+        justify-content: center;
+    }
+    .swiper-container {
+        overflow: visible;
+        height: 100%;
+        // border: 1px solid #000;
+        border-radius: 10px;
+    }
+
+    .swiper-button {
+        display: none;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        background-size: cover;
+        background-position: center;
+        background-color: #fff;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rank-top {
+        position: relative;
+        width: 450px;
+        height: 600px;
+        overflow: hidden;
+    }
+
+    .rank-thumbs {
+        width: 100%;
+        height: 230px;
+
+        .swiper-wrapper {
+            flex-direction: row;
+        }
+        .swiper-slide {
+            // border: 1px solid red;
+            // overflow: hidden;
+            width: 175px;
+            height: 230px;
+            opacity: 0.75;
+            cursor: pointer;
+            border-radius: 10px;
+            img {
+                width: 175px;
+                height: 230px;
+                overflow: hidden;
+            }
+        }
+        .swiper-slide-thumb-active {
+            opacity: 1;
+            color: #12b560;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        }
+    }
+    .swiper-text {
+        color: #fff;
+        font-size: 70px;
+        font-weight: 900;
+        position: relative;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+        strong {
+            position: absolute;
+            left: -5px;
+            bottom: -45px;
+        }
+    }
+
+    .rightBox {
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 600px;
+
+        .textBox {
+            h2 {
+                font-size: 32px;
+                font-weight: 600;
+                margin-right: 10px;
+                margin-bottom: 20px;
+
+                span {
+                    font-size: 18px;
+                    font-weight: 400;
+                    color: #3f3f3f;
+                }
+            }
+            .icons {
+                display: flex;
+                gap: 30px;
+                margin-bottom: 50px;
+                font-size: 18px;
+                font-weight: 700;
+                li {
+                }
+            }
+            strong {
+                font-size: 18px;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            button {
+                margin-top: 30px;
+                display: block;
+                border: none;
+                background: transparent;
+                border: 2px solid #ddd;
+                border-radius: 50px;
+                font-size: 16px;
+                width: 200px;
+                height: 40px;
+                cursor: pointer;
+                &:hover {
+                    background: #12b560;
+                    border: 1px solid #12b560;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    h1 {
+        font-size: 36px;
+        font-weight: 800;
+        margin-bottom: 30px;
+        strong {
+            color: #12b560;
+        }
+    }
+}

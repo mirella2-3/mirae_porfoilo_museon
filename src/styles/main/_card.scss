@@ -1,0 +1,297 @@
+#CardList {
+    width: 100vw;
+    overflow-x: hidden;
+    @supports (animation-timeline: view()) {
+        .img-wrapper img {
+            animation: shrink-top 1s both ease-in-out, shrink-bottom 1s both ease-in-out reverse;
+            animation-timeline: view(block);
+            animation-range: entry exit;
+        }
+
+        @keyframes shrink-top {
+            from {
+                transform-origin: top center;
+                transform: scaleY(1);
+                opacity: 1;
+            }
+            to {
+                transform-origin: top center;
+                transform: scaleY(0.5);
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes shrink-bottom {
+            from {
+                transform-origin: bottom center;
+                transform: scaleY(1);
+                opacity: 1;
+            }
+            to {
+                transform-origin: bottom center;
+                transform: scaleY(0.5);
+                opacity: 0.5;
+            }
+        }
+    }
+
+    .swiperWrapper {
+        position: relative;
+
+        .overlay-left,
+        .overlay-right {
+            position: absolute;
+            top: 0;
+            width: 200px; // 덮는 영역 폭
+            height: 100%;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .overlay-left {
+            left: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.8), transparent);
+        }
+
+        .overlay-right {
+            right: 0;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.8), transparent);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #fff; // 화살표 색
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            margin-top: -20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+
+    @keyframes shrink-top {
+        0% {
+            transform-origin: top;
+            transform: rotate(0.8deg) translateY(0) scale(0.5) rotateX(-60deg);
+            opacity: 0.8;
+        }
+    }
+
+    @keyframes shrink-bottom {
+        0% {
+            transform-origin: bottom;
+            transform: rotate(0.8deg) translateY(0) scale(0.5) rotateX(60deg);
+            opacity: 0.8;
+        }
+    }
+
+    // 카드 섹션
+    h1 {
+        color: #222;
+        font-size: 26px;
+        font-weight: 800;
+        margin: 120px 0 30px 0;
+    }
+
+    section {
+        position: relative;
+        perspective: 4000px;
+        display: grid;
+        gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(192px, 1fr));
+        header {
+            grid-column: 1 / -1;
+        }
+    }
+    #CardSwiper {
+        position: relative;
+        perspective: 4000px;
+        display: grid;
+        gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(192px, 1fr));
+        overflow: visible;
+        width: 100vw;
+
+        header {
+            grid-column: 1 / -1;
+        }
+    }
+
+    // 카드
+    article {
+        width: 100%;
+        figure {
+            position: relative;
+
+            img {
+                display: block;
+                width: 100%;
+                border-radius: 5px;
+            }
+
+            .bg {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 0; // 기본은 0
+                background: rgba(255, 255, 255, 0.5);
+                transition: height 0.3s ease;
+            }
+
+            ul {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 15px;
+                box-sizing: border-box;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            &:hover {
+                .bg {
+                    height: 100%;
+                }
+                ul {
+                    opacity: 1;
+                }
+            }
+        }
+
+        figure {
+            position: relative;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                aspect-ratio: 257/364;
+                object-fit: cover;
+                border-radius: 5px;
+                display: block;
+            }
+
+            ul.card-content {
+                height: 100%;
+                width: 100%;
+                padding: 10px 15px;
+                background: rgba(0, 0, 0, 0.6);
+                transform: translateY(100%);
+                transition: transform 0.3s ease;
+                box-sizing: border-box;
+                border-radius: 0 0 5px 5px;
+                z-index: 1;
+                display: block;
+                justify-content: center;
+                align-content: center;
+                text-align: center;
+                cursor: pointer;
+
+                .title {
+                    color: #fff;
+                    margin-bottom: 10px;
+
+                    h4 {
+                        font-weight: 500;
+                        font-size: 18px;
+                        margin: 0;
+                        word-break: keep-all;
+                    }
+
+                    span {
+                        font-size: 14px;
+                        color: #ccc;
+                    }
+                }
+
+                .icons {
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    justify-content: center;
+
+                    div {
+                        width: 40px;
+                        height: 40px;
+                        font-size: 22px;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.6);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: #12b560;
+                        }
+                        .favBtn {
+                            background: none;
+                        }
+                    }
+                }
+            }
+
+            &:hover ul.card-content {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    .scroll-area {
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        article {
+            flex-shrink: 0;
+            width: 250px;
+            height: auto;
+            scroll-snap-align: start;
+            display: block;
+        }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        position: absolute;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    }
+
+    .swiper-button-prev {
+        left: -30px;
+    }
+
+    .swiper-button-next {
+        right: -30px;
+    }
+}

@@ -1,0 +1,173 @@
+.coverflow-slider {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease;
+    .inner {
+        padding: 260px 0;
+        width: 1540px;
+
+        position: relative;
+    }
+    .thumb-coverflow {
+        position: relative;
+        width: 52vw;
+        height: 100vh;
+        margin: 0 auto;
+        top: 50%;
+        left: -25%;
+        z-index: 100;
+
+        .swiper-slide-next,
+        .swiper-slide-next + .swiper-slide {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none;
+        }
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .swiper-wrapper {
+            align-items: center;
+        }
+
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumb-card {
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    .thumb-card {
+        pointer-events: none;
+        width: 340px;
+        height: 500px;
+        border-radius: 15px;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        // overflow: hidden ;
+        transition: transform 0.3s;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+            color: white;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+            margin-bottom: 15px;
+        }
+    }
+
+    .swiper-slide-active .thumb-card {
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    }
+    .visualBtns {
+        all: unset;
+        position: absolute;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transform: translateY(-50%);
+        color: #fff;
+        padding: 5px;
+        left: 30vw;
+        top: 72vh;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: #fff;
+    }
+
+    /* Swiper가 기본으로 넣는 화살표 아이콘 없애기 */
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        content: none !important;
+    }
+
+    .thumb-coverflow.no-drag {
+        pointer-events: none; // 전체 Swiper의 마우스 이벤트 차단
+    }
+
+    .thumb-coverflow.no-drag .swiper-slide,
+    .thumb-coverflow.no-drag .swiper-wrapper {
+        pointer-events: none !important;
+    }
+
+    .thumb-coverflow.no-drag .swiper-button-prev {
+        pointer-events: auto; // ✅ 버튼만 클릭 가능하게 다시 열어줌
+    }
+
+    .slide-info {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0%;
+        height: 400px;
+        color: white;
+        width: 610px;
+        z-index: 3; /* Swiper 위에 오도록 */
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 60px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 18px;
+            display: -webkit-box;
+            -webkit-line-clamp: 6; /* ✅ 5줄까지만 보이게 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 300;
+            margin-bottom: 50px;
+        }
+        ul {
+            display: flex;
+            gap: 30px;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            li {
+            }
+        }
+        button {
+            position: absolute;
+            right: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 240px;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            border: none;
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+            cursor: pointer;
+            &:hover {
+                background: #12b560;
+                color: #fff;
+            }
+        }
+    }
+}

@@ -1,0 +1,323 @@
+#director {
+    .prompt {
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        // padding: 1rem;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 4rem;
+        font-weight: bold;
+        margin: 100px 0 30px;
+    }
+
+    .centerize {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-auto-rows: 1fr 7fr;
+        justify-items: center;
+    }
+
+    .flex {
+        display: flex;
+        // margin: 8rem;
+    }
+
+    .spotlight {
+        position: relative;
+        width: 256px;
+        max-height: 640px;
+        filter: grayscale(1);
+    }
+
+    .spotlight .image {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .spotlight .text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        font-size: 2rem;
+        color: white;
+        text-shadow: 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+        text-align: center;
+    }
+
+    .spotlight {
+        transform-origin: top left;
+        // transform: skew(2.5deg);
+    }
+    .spotlight:nth-child(2n) {
+        transform-origin: top right;
+        // transform: skew(-2.5deg);
+    }
+
+    .bg-red {
+        background: hsl(0 100% 50%);
+    }
+    .bg-blue {
+        background: hsl(200 100% 50%);
+    }
+    .bg-green {
+        background: hsl(100 100% 50%);
+    }
+    .bg-purple {
+        background: hsl(320 100% 50%);
+    }
+
+    // .z-1 {
+    //   z-index: 1;
+    // }
+    // .z-2 {
+    //   z-index: 2;
+    // }
+    // .z-3 {
+    //   z-index: 3;
+    // }
+    // .z-4 {
+    //   z-index: 4;
+    // }
+    // .z-5 {
+    //   z-index: 5;
+    // }
+    // .z-6 {
+    //   z-index: 6;
+    // }
+    // .z-7 {
+    //   z-index: 7;
+    // }
+    // .z-8 {
+    //   z-index: 8;
+    // }
+    // .z-9 {
+    //   z-index: 9;
+    // }
+    // .z-10 {
+    //   z-index: 10;
+    // }
+
+    .breakout {
+        position: absolute;
+        min-width: 128px;
+        max-width: calc(256px * 1.5);
+        inset: 0;
+        left: -2rem;
+        right: -2rem;
+        display: none;
+        pointer-events: none;
+    }
+
+    .breakout,
+    .image {
+        text-align: center;
+        vertical-align: bottom;
+        filter: grayscale(1);
+        cursor: pointer;
+        width: 500px;
+    }
+
+    .breakout img,
+    .image img {
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0 auto;
+    }
+
+    .spotlight:hover {
+        width: 256px;
+        animation: 250ms unskew forwards;
+        z-index: 20;
+    }
+
+    .spotlight:hover .image {
+        display: none;
+    }
+
+    .spotlight:hover .breakout {
+        display: flex;
+        align-items: center;
+        transform-origin: middle;
+        animation: breakout 1s forwards;
+    }
+
+    .spotlight:hover .text {
+        font-size: calc(2rem * 1.5);
+    }
+
+    @keyframes unskew {
+        to {
+            transform: skew(0deg);
+            filter: grayscale(0);
+        }
+    }
+
+    @keyframes breakout {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale(1.5);
+            filter: grayscale(0);
+        }
+    }
+
+    @media (max-width: 1280px) {
+        .flex {
+            justify-items: center;
+        }
+        .spotlight {
+            width: 128px;
+        }
+        .spotlight:hover {
+            width: 128px;
+        }
+    }
+    .director-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7); // 배경 어둡게
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: fadeInBg 0.4s ease forwards;
+
+        .director-modal-content {
+            background: white;
+            width: 100%;
+            // max-width: 1000px;
+            height: 100%;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            animation: scaleUp 0.4s ease forwards;
+        }
+
+        .left {
+            flex: 1;
+            // background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: slideInLeft 0.5s ease forwards;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .right {
+            flex: 2;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideInRight 0.5s ease 0.2s forwards; // 약간 delay
+
+            opacity: 0; // 애니메이션 전에 안 보이게
+            transform: translateX(40px); // 시작 위치
+
+            h2 {
+                font-size: 24px;
+                margin-bottom: 1rem;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    font-size: 18px;
+                    margin-bottom: 8px;
+                    opacity: 0;
+                    animation: fadeInListItem 0.3s ease forwards;
+                    animation-delay: 0.7s;
+                }
+            }
+
+            button {
+                margin-top: 2rem;
+                align-self: flex-end;
+                padding: 0.5rem 1.5rem;
+                border: none;
+                background-color: #12b560;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    background-color: #d0481b;
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    // 🔑 키프레임들
+    @keyframes fadeInBg {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes scaleUp {
+        from {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInLeft {
+        from {
+            transform: translateX(-50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInListItem {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
