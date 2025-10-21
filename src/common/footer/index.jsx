@@ -7,7 +7,7 @@ const Footer = () => {
                 <ul>
                     <li>
                         <h2>
-                            <Link to="/main">
+                            <Link to="/">
                                 <img src="/images/logo.png" alt="" />
                             </Link>
                         </h2>

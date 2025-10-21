@@ -15,7 +15,7 @@ const IntroLogin = () => {
                     </li>
                     <li>
                         <span>VI:ON 둘러보러 가기</span>
-                        <Link to="/main">
+                        <Link to="/">
                             <button className="button">메인페이지</button>
                         </Link>
                     </li>

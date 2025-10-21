@@ -60,7 +60,7 @@ const Header = () => {
     return (
         <header id="header" style={headerStyle}>
             <h1 style={{ margin: 0 }}>
-                <Link to="/main">
+                <Link to="/">
                     <img
                         src={scrolled ? '/images/logo_small.png' : '/images/logo.png'}
                         alt="Logo"
