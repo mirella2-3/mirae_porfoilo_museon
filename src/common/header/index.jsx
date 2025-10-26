@@ -7,16 +7,22 @@ const fixedHeightPaths = ['/mypage', '/search', '/join', '/login'];
 const Header = () => {
     const location = useLocation();
     const [scrolled, setScrolled] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
 
     const isFixedHeightPath = fixedHeightPaths.includes(location.pathname);
 
+    // 스크롤 이벤트
     useEffect(() => {
-        const onScroll = () => {
-            setScrolled(window.scrollY > 0);
-        };
-
+        const onScroll = () => setScrolled(window.scrollY > 0);
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    // 화면 너비 변경 감지
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 600);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     const headerStyle = isFixedHeightPath
@@ -27,8 +33,6 @@ const Header = () => {
               width: '100%',
               height: scrolled ? '50px' : '100px',
               backgroundColor: 'rgba(255,255,255,0.3)',
-              borderBottom: scrolled ? 'none' : 'none',
-              opacity: 1,
               transition: 'all 0.3s ease',
               zIndex: 1000,
               display: 'flex',
@@ -42,8 +46,6 @@ const Header = () => {
               width: '100%',
               height: scrolled ? '60px' : '100px',
               backgroundColor: scrolled ? 'rgba(255,255,255,0.3)' : 'transparent',
-              borderBottom: scrolled ? 'none' : 'none',
-              opacity: 1,
               transition: 'all 0.3s ease',
               zIndex: 1000,
               display: 'flex',
@@ -54,18 +56,21 @@ const Header = () => {
     const logoHeight = scrolled ? 80 : 120;
     const logoFilter = scrolled || isFixedHeightPath ? 'drop-shadow(0 0 1px #999)' : 'none';
 
-    // NavBar에 넘겨줄 텍스트 색상 (투명일 때 흰색, 그 외 진한색)
-    const navTextColor = !scrolled && !isFixedHeightPath ? '#fff' : '#222';
+    // 모바일이면 항상 작은 로고
+    const logoSrc = isMobile
+        ? '/images/logo_small.png'
+        : scrolled
+        ? '/images/logo_small.png'
+        : '/images/logo.png';
 
     return (
         <header id="header" style={headerStyle}>
             <h1 style={{ margin: 0 }}>
                 <Link to="/">
                     <img
-                        // src={scrolled ? '/images/logo_small.png' : '/images/logo.png'}
+                        src={logoSrc}
                         alt="Logo"
                         style={{
-                            // height: logoHeight,
                             width: logoHeight,
                             filter: logoFilter,
                             transition: 'filter 0.3s ease, height 0.3s ease',
