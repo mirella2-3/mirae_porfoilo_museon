@@ -8,7 +8,6 @@
     .inner {
         padding: 260px 0;
         width: 1540px;
-
         position: relative;
     }
     .thumb-coverflow {
@@ -121,7 +120,7 @@
         height: 400px;
         color: white;
         width: 610px;
-        z-index: 3; /* Swiper 위에 오도록 */
+        z-index: 3;
 
         h2 {
             margin-bottom: 20px;
@@ -132,7 +131,7 @@
         p {
             font-size: 18px;
             display: -webkit-box;
-            -webkit-line-clamp: 6; /* ✅ 5줄까지만 보이게 */
+            -webkit-line-clamp: 6;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -150,7 +149,7 @@
         }
         button {
             position: absolute;
-            right: 0;
+
             left: 50%;
             transform: translateX(-50%);
             bottom: 0;
@@ -168,6 +167,187 @@
                 background: #12b560;
                 color: #fff;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .coverflow-slider {
+        position: relative;
+        height: auto;
+        min-height: 100vh;
+        background-position: center center;
+
+        .inner {
+            width: 90%;
+            margin: 0 auto;
+            padding: 120px 0 80px;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .thumb-coverflow {
+            width: 45%;
+            height: auto;
+            left: 0;
+            top: 0;
+            margin: 0;
+            padding: 0;
+            transform: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .thumb-card {
+                width: 100%;
+                aspect-ratio: 2 / 3;
+                height: auto;
+                border-radius: 20px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+                background-size: cover;
+                background-position: center;
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+                &:hover {
+                    transform: scale(1.02);
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+                }
+            }
+        }
+
+        .slide-info {
+            width: 50%;
+            color: #fff;
+            top: 20%;
+            transform: none;
+            height: auto;
+            text-align: left;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+
+            h2 {
+                font-size: 38px;
+                font-weight: 700;
+                line-height: 1.2;
+                margin-bottom: 10px;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                font-size: 18px;
+                margin-bottom: 20px;
+
+                li {
+                    opacity: 0.9;
+                }
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 1.6;
+                -webkit-line-clamp: 5;
+                margin-bottom: 30px;
+                opacity: 0.9;
+            }
+
+            button {
+                bottom: -20%;
+                width: 200px;
+                align-self: flex-start;
+                font-size: 16px;
+                font-weight: 600;
+                border-radius: 40px;
+                padding: 12px 0;
+                background: #fff;
+                color: #12b560;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: #12b560;
+                    color: #fff;
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 15px rgba(18, 181, 96, 0.4);
+                }
+            }
+        }
+
+        /* 🎛 버튼 정렬 */
+        .visualBtns {
+            left: 50%;
+            bottom: 40px;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 10;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .coverflow-slider {
+        .inner {
+            box-sizing: border-box;
+            height: 100vh;
+        }
+        .thumb-coverflow {
+            opacity: 0;
+            .thumb-card {
+                background-position: center;
+            }
+        }
+
+        .slide-info {
+            width: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+
+            margin: 0 50px;
+
+            h2 {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            p {
+                font-size: 20px;
+                -webkit-line-clamp: 4;
+            }
+            ul {
+                margin-bottom: 60px;
+                justify-content: center;
+
+                li {
+                    font-size: 24px;
+                }
+            }
+            button {
+                width: 100%;
+                font-size: 14px;
+                bottom: -10%;
+            }
+        }
+        .visualBtns {
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100px;
+        }
+        .swiper-button-prev,
+        .swiper-button-next {
         }
     }
 }

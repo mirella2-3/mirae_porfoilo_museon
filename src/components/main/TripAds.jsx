@@ -19,7 +19,7 @@ const TripAds = () => {
             },
             on: {
                 slideChange: function () {
-                    setActiveIndex(this.realIndex); // loop일 때 realIndex 사용
+                    setActiveIndex(this.realIndex);
                 },
             },
         });

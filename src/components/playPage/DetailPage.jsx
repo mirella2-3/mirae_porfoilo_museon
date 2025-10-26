@@ -12,7 +12,6 @@ import { addWatched } from '../../store/module/watchedSlice';
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 const DetailPage = ({ data, type, onReviewClick }) => {
-    // data, type는 부모에서 넘겨줌 (Detail.jsx)
     const dispatch = useDispatch();
     const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
     const [videoKey, setVideoKey] = useState(null);

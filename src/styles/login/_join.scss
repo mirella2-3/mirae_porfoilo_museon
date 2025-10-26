@@ -22,7 +22,7 @@
 
         .form-group {
             display: flex;
-            align-items: center; // 세로 가운데 정렬
+            align-items: center;
             margin-bottom: 40px;
             position: relative;
 
@@ -30,7 +30,6 @@
                 width: 220px;
                 height: 30px;
                 color: #353535;
-                flex-shrink: 0; // label 너비 고정 유지
 
                 span {
                     position: relative;
@@ -63,12 +62,11 @@
                 }
             }
 
-            // input + button 묶음만 flex-row
             .input-row {
                 display: flex;
-                flex: 1; // 남은 공간 차지
+                flex: 1;
                 gap: 10px;
-                flex-wrap: wrap; // 좁아질때 줄바꿈 방지 (필요시)
+                flex-wrap: wrap;
 
                 input {
                     flex: 1;
@@ -97,7 +95,6 @@
                 }
             }
 
-            // input이나 버튼이 따로 있을 때 (input 단독, button 단독 등)
             input:not(.input-row input) {
                 flex: 1;
                 border: 1px solid #d4d4d4;
@@ -109,10 +106,9 @@
                 }
             }
 
-            // 에러 텍스트는 input/버튼 영역 아래에 위치하게 하려면 block 레벨로 따로 둠
             .error-text {
                 position: absolute;
-                left: 220px; // label 너비와 맞춤
+                left: 220px;
                 bottom: -20px;
                 color: #ff4d4f;
                 font-size: 13px;
@@ -120,7 +116,6 @@
             }
         }
 
-        // 전화번호 인증번호 입력 영역 따로
         .phoneAuth {
             margin-left: 220px;
             display: flex;
@@ -193,6 +188,108 @@
             &:hover {
                 color: #fff;
                 background: #12b560;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #Join {
+        h1 {
+            font-size: 24px;
+            line-height: 50px;
+            margin-bottom: 20px;
+            text-align: center;
+            &::after {
+                width: 100%;
+                left: 0;
+                bottom: -5px;
+            }
+        }
+
+        .form {
+            width: 95%;
+            // border: 1px solid #000;
+
+            .form-group {
+                flex-direction: column;
+                align-items: stretch;
+                margin-bottom: 20px;
+
+                .label {
+                    width: 100%;
+                    margin-bottom: 5px;
+                    span::after {
+                        top: 50%;
+                        left: 5px;
+                    }
+                }
+
+                .input-row {
+                    flex-direction: column;
+                    width: 100%;
+                    gap: 10px;
+
+                    input,
+                    button {
+                        width: 100%;
+                        box-sizing: border-box;
+                        padding: 12px 15px;
+                    }
+                }
+
+                input:not(.input-row input) {
+                    width: 100%;
+                    padding: 12px 15px;
+                    box-sizing: border-box;
+                }
+
+                .error-text {
+                    position: relative;
+                    left: 0;
+                    bottom: 0;
+                    margin-top: 5px;
+                    font-size: 12px;
+                }
+            }
+
+            .phoneAuth {
+                flex-direction: column;
+                align-items: stretch;
+                margin-left: 0;
+                gap: 10px;
+
+                input,
+                button {
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding: 12px 15px;
+                }
+
+                .error-text {
+                    margin-left: 0;
+                    margin-top: 5px;
+                }
+            }
+
+            .gender-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+
+                p {
+                    margin: 0;
+                }
+            }
+        }
+
+        .form-actions {
+            flex-direction: column;
+            gap: 10px;
+
+            button {
+                width: 100%;
+                height: 40px;
             }
         }
     }

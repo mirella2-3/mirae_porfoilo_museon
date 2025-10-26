@@ -23,7 +23,6 @@ const titles = [
     { name: '비밀의 숲', type: 'tv' },
 ];
 
-// ✅ 개별 콘텐츠 가져오기
 async function fetchContent(title, type) {
     try {
         const searchRes = await fetch(
@@ -56,17 +55,16 @@ async function fetchContent(title, type) {
     }
 }
 
-// ✅ 여러 개 동시에 가져오기
 async function fetchSelectedContents() {
     const promises = titles.map((t) => fetchContent(t.name, t.type));
     const results = await Promise.all(promises);
-    return results.filter(Boolean); // null 제거
+    return results.filter(Boolean);
 }
 
 const Recommend = () => {
     const [slides, setSlides] = useState([]);
     const swiperRef = useRef(null);
-    const navigate = useNavigate(); // ✅ 추가
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function loadData() {

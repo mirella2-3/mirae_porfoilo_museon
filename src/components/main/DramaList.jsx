@@ -32,10 +32,22 @@ const DramaList = () => {
     return (
         <div id="CardList" className="ListWrap">
             <main className="swiperWrapper">
-                <h1 style={{ paddingLeft: 260 }}>인기 TV 시리즈</h1>
+                <h1>인기 TV 시리즈</h1>
                 <div className="overlay-left" />
                 <div className="overlay-right" />
-                <Swiper slidesPerView={8} spaceBetween={15} loop={true}>
+                <Swiper
+                    slidesPerView={8}
+                    spaceBetween={15}
+                    loop={true}
+                    breakpoints={{
+                        0: { slidesPerView: 3, spaceBetween: 10 },
+                        601: { slidesPerView: 4, spaceBetween: 10 },
+                        1024: {
+                            slidesPerView: 8,
+                            spaceBetween: 15,
+                        },
+                    }}
+                >
                     {seriesList.map((item) => (
                         <SwiperSlide key={item.id}>
                             <DramaItem

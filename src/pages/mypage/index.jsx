@@ -24,20 +24,17 @@ const Mypage = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    // URL 쿼리 파라미터에서 activeTab 값을 가져옵니다.
     const queryParams = new URLSearchParams(location.search);
-    const tabFromUrl = queryParams.get('tab') || 'my-details'; // 기본값은 'my-details'
+    const tabFromUrl = queryParams.get('tab') || 'my-details';
 
-    const [activeTab, setActiveTab] = useState(tabFromUrl); // 탭 상태 관리
-
+    const [activeTab, setActiveTab] = useState(tabFromUrl);
     useEffect(() => {
-        // 쿼리 파라미터가 변경될 때마다 activeTab을 업데이트
         setActiveTab(tabFromUrl);
-    }, [location.search]); // location.search가 변경될 때마다 실행
+    }, [location.search]);
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
-        navigate(`/mypage?tab=${tab}`); // 탭 클릭 시 URL 쿼리 파라미터를 업데이트
+        navigate(`/mypage?tab=${tab}`);
     };
 
     return (

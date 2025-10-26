@@ -133,6 +133,24 @@ export default function Visual3() {
                     className="thumb-coverflow no-drag"
                     allowTouchMove={false}
                     mousewheel={false}
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 1,
+                            centeredSlides: false,
+                            allowTouchMove: true,
+                            coverflowEffect: {
+                                stretch: 0,
+                                depth: 100,
+                            },
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            coverflowEffect: {
+                                stretch: 200,
+                                depth: 150,
+                            },
+                        },
+                    }}
                 >
                     {movies.map((m) => (
                         <SwiperSlide key={m.id}>

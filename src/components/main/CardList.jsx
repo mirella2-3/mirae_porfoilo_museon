@@ -16,8 +16,22 @@ const fetchMovies = async (category) => {
 
 const NowplayingSection = ({ title, nowplayings }) => (
     <>
-        <h1 style={{ paddingLeft: 260 }}>{title}</h1>
-        <Swiper id="CardSwiper" slidesPerView={7} spaceBetween={13} loop={true} grabCursor={true}>
+        <h1>{title}</h1>
+        <Swiper
+            id="CardSwiper"
+            slidesPerView={7}
+            spaceBetween={13}
+            loop={true}
+            grabCursor={true}
+            breakpoints={{
+                0: { slidesPerView: 3, spaceBetween: 10 },
+                601: { slidesPerView: 4, spaceBetween: 10 },
+                1024: {
+                    slidesPerView: 7,
+                    spaceBetween: 13,
+                },
+            }}
+        >
             {nowplayings.map((data, idx) => (
                 <SwiperSlide key={idx}>
                     <CardItem
@@ -35,8 +49,22 @@ const NowplayingSection = ({ title, nowplayings }) => (
 
 const PopularSection = ({ title, datas }) => (
     <>
-        <h1 style={{ paddingLeft: 260 }}>{title}</h1>
-        <Swiper id="CardSwiper" slidesPerView={7} spaceBetween={13} loop={true} grabCursor={true}>
+        <h1>{title}</h1>
+        <Swiper
+            id="CardSwiper"
+            slidesPerView={7}
+            spaceBetween={13}
+            loop={true}
+            grabCursor={true}
+            breakpoints={{
+                0: { slidesPerView: 3, spaceBetween: 10 },
+                601: { slidesPerView: 4, spaceBetween: 10 },
+                1024: {
+                    slidesPerView: 7,
+                    spaceBetween: 13,
+                },
+            }}
+        >
             {datas.map((data, idx) => (
                 <SwiperSlide key={idx}>
                     <PopularItem

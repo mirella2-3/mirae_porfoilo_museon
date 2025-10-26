@@ -26,7 +26,6 @@
             left: 0;
             width: 33.85vw;
             height: 100vh;
-            // text-align: center;
             color: #fff;
             display: block;
             z-index: 10;
@@ -761,6 +760,406 @@
                         content: none;
                     }
                 }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1023px) {
+    #detailStyle {
+        &.detailWrap {
+            height: 60vh;
+
+            .bg {
+                height: 100%;
+            }
+            .content {
+                display: block;
+                bottom: 0;
+                left: 0;
+                width: 50%;
+                height: 100%;
+
+                border-radius: 0;
+                .txts {
+                    margin: 50px;
+                }
+                p {
+                    height: 100%;
+                }
+                h2 {
+                    margin-top: 70px;
+                    margin-bottom: 30px;
+                    font-size: 40px;
+                }
+                .inform {
+                    margin-bottom: 20px;
+                    font-size: 16px;
+                }
+                .desc {
+                    margin-bottom: 30px;
+                    font-size: 16px;
+                    width: 90%;
+                }
+            }
+            .overlay {
+                height: 100%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    #detailStyle {
+        &.detailWrap {
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+
+            .bg {
+                width: 100%;
+                height: 50vh;
+                img,
+                video,
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .content {
+                width: 100%;
+                height: 50vh;
+                padding: 30px 20px;
+                background: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                border-radius: 0;
+                text-align: center;
+                position: relative;
+
+                .txts {
+                    margin: 0 auto;
+                    max-width: 90%;
+                }
+
+                p {
+                    display: none; // 반투명 박스 제거 (모바일에서 공간 낭비됨)
+                }
+
+                h2 {
+                    font-size: 28px;
+                    font-weight: 700;
+                    margin-top: 20px;
+                    margin-bottom: 15px;
+                }
+
+                .inform {
+                    font-size: 14px;
+                    gap: 15px;
+                    margin-bottom: 20px;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                }
+
+                .desc {
+                    font-size: 15px;
+                    line-height: 1.4;
+                    margin: 0 auto 25px;
+                    width: 100%;
+                    -webkit-line-clamp: 3;
+                }
+
+                .buttons {
+                    justify-content: center;
+                    gap: 10px;
+
+                    li {
+                        font-size: 18px;
+                    }
+                }
+
+                button {
+                    width: 180px;
+                    padding: 8px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 30px;
+                    background: #fff;
+                    color: #555;
+                }
+            }
+
+            .overlay {
+                display: none; // 모바일에선 어두운 오버레이 제거
+            }
+        }
+    }
+}
+@media screen and (max-width: 1023px) {
+    #DetailrecommendStyle {
+        width: 100vw;
+        .inner {
+            width: 90%;
+            margin: auto;
+        }
+        .tabs {
+            > li {
+                a {
+                    width: 300px;
+                    height: 50px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    #DetailrecommendListStyle {
+        section {
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 10px;
+        }
+
+        article {
+            margin-bottom: 20px;
+            figure img {
+                aspect-ratio: 3 / 4;
+            }
+        }
+    }
+
+    #DetailDescStyle {
+        ul {
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 50px;
+
+            .imgUrl {
+                width: 100%;
+                .photogallery {
+                    flex-direction: column;
+
+                    menu {
+                        width: 100%;
+                        ul {
+                            display: flex;
+                            overflow-x: auto;
+
+                            li {
+                                display: none;
+                                height: 100px;
+                                margin-right: 10px;
+                                img {
+                                    width: 100px;
+                                    height: 100px;
+                                }
+                            }
+                        }
+                    }
+
+                    section {
+                        .galleryimage {
+                            width: 100%;
+                            img {
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .descs {
+                width: 100%;
+                padding: 0 20px;
+
+                ul {
+                    h3 {
+                        font-size: 28px;
+                        margin-bottom: 20px;
+                    }
+                    span {
+                        font-size: 16px;
+                        margin-bottom: 30px;
+                    }
+                    li {
+                        font-size: 16px;
+                        margin-bottom: 20px;
+                        strong {
+                            margin-right: 30px;
+                            width: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #DetailReviewStyle {
+        .textBar {
+            width: 90%;
+            input {
+                width: calc(100% - 180px);
+            }
+        }
+
+        .replyBox ul .reply {
+            width: 90%;
+            .content {
+                width: 100%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    #DetailrecommendStyle {
+        width: 100vw;
+        .inner {
+            width: 95%;
+        }
+
+        .tabs {
+            flex-direction: column;
+            text-align: center;
+
+            > li {
+                width: 100%;
+                a {
+                    width: 100%;
+                    height: 50px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    #DetailrecommendListStyle {
+        section {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 8px;
+        }
+
+        article figure img {
+            border-radius: 5px;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            display: none; // 모바일에선 버튼 제거
+        }
+    }
+
+    #DetailDescStyle {
+        ul {
+            align-items: center;
+
+            .imgUrl {
+                width: 100%;
+                .photogallery {
+                    flex-direction: column;
+
+                    menu {
+                        width: 100%;
+                        ul {
+                            display: flex;
+                            overflow-x: auto;
+                            li {
+                                height: 80px;
+                                margin-right: 8px;
+                                img {
+                                    width: 80px;
+                                    height: 80px;
+                                }
+                            }
+                        }
+                    }
+
+                    section {
+                        .galleryimage {
+                            width: 100%;
+                            img {
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .descs {
+                width: 100%;
+                padding: 0 15px;
+
+                ul {
+                    h3 {
+                        font-size: 22px;
+                    }
+                    span {
+                        font-size: 14px;
+                        margin-bottom: 20px;
+                    }
+                    li {
+                        font-size: 14px;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        strong {
+                            margin-right: 0;
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #DetailReviewStyle {
+        width: 100%;
+        padding: 0 15px;
+
+        .textBar {
+            flex-direction: column;
+            width: 100%;
+            padding-top: 40px;
+
+            input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            > span {
+                right: 20px;
+                top: auto;
+                bottom: 90px;
+            }
+            button {
+                width: 100%;
+                height: 45px;
+                font-size: 15px;
+            }
+        }
+
+        .replyBox ul .reply {
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .content {
+                width: 100%;
+                font-size: 14px;
+            }
+
+            .delete {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+
+            &::after {
+                width: 100%;
             }
         }
     }

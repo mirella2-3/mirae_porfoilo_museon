@@ -96,30 +96,38 @@
             svg {
                 width: 24px;
                 height: 24px;
-                color: inherit; // iconColor 사용
+                color: inherit;
             }
         }
     }
-
-    // hader end
-
-    //   @include tablet {
-    //     background: pink;
-    //     .inner {
-    //       height: 70px;
-    //       width: 100%;
-    //     }
-    //     h1 {
-    //       left: 10px;
-    //       a img {
-    //         width: 40px;
-    //       }
-    //     }
-    //     .nav ul li {
-    //       margin-left: 40px;
-    //       a {
-    //         font-size: 16px;
-    //       }
-    //     }
-    //   }
+}
+@media screen and (max-width: 1023px) {
+    .top-menu {
+        li {
+            .topbutton {
+                font-size: 30px;
+            }
+            a {
+            }
+            svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    #header {
+        h1 {
+            left: 50%;
+            transform: translate(-50%, -50%);
+            top: 50%;
+        }
+        .top-menu {
+            margin-right: 20px;
+            li {
+                margin: 10px;
+            }
+        }
+    }
 }

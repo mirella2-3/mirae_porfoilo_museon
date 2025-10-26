@@ -33,7 +33,7 @@ const TopRatedList = () => {
     return (
         <div id="CardList" className="ListWrap">
             <main className="swiperWrapper">
-                <h1 style={{ paddingLeft: 260 }}>명작은 다시봐도 명작</h1>
+                <h1>명작은 다시봐도 명작</h1>
                 <div className="overlay-left" />
                 <div className="overlay-right" />
                 <Swiper
@@ -43,6 +43,14 @@ const TopRatedList = () => {
                     navigation
                     modules={[Navigation, Autoplay]}
                     autoplay={{ delay: 3000, disableOnInteraction: false }}
+                    breakpoints={{
+                        0: { slidesPerView: 3, spaceBetween: 10 },
+                        601: { slidesPerView: 4, spaceBetween: 10 },
+                        1024: {
+                            slidesPerView: 8,
+                            spaceBetween: 15,
+                        },
+                    }}
                 >
                     {topRated.map((data) => (
                         <SwiperSlide key={data.id}>

@@ -302,12 +302,11 @@ const Join = () => {
                             onClick={handleSendCode}
                             disabled={!phone || isPhoneVerified}
                         >
-                            {isPhoneVerified ? '인증 완료' : '인증번호 받기'}
+                            {isPhoneVerified ? '인증 완료' : `인증하기`}
                         </button>
                         {phoneError && <p className="error-text">{phoneError}</p>}
                     </div>
 
-                    {/* 인증번호 입력 */}
                     {authCode && !isPhoneVerified && (
                         <div className="phoneAuth">
                             <input

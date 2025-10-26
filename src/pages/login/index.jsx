@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import { login } from '../../store/module/userSlice'; // userSlice 액션 가져오기
+import { login } from '../../store/module/userSlice';
 
 const Login = () => {
-    const [mode, setMode] = useState('login'); // 'login' 또는 'register'
+    const [mode, setMode] = useState('login');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    // 로그인 처리
     const handleLogin = (e) => {
         e.preventDefault();
 
@@ -27,17 +26,15 @@ const Login = () => {
             return;
         }
 
-        // Redux + localStorage에 로그인 상태 저장
         dispatch(login(user));
         localStorage.setItem('loggedInUser', JSON.stringify(user));
 
-        navigate('/main');
+        navigate('/');
     };
 
     return (
         <div id="loginStyle">
             <div className="veen">
-                {/* 로그인 버튼 */}
                 <div className="login-btn splits">
                     <button
                         className={`auth-btn ${mode === 'login' ? 'active' : ''}`}
@@ -47,7 +44,6 @@ const Login = () => {
                     </button>
                 </div>
 
-                {/* 회원가입 버튼 */}
                 <div className="rgstr-btn splits">
                     <button
                         className={`auth-btn ${mode === 'register' ? 'active' : ''}`}
@@ -57,9 +53,7 @@ const Login = () => {
                     </button>
                 </div>
 
-                {/* 로그인 / 회원가입 폼 */}
                 <div className={`wrapper ${mode === 'register' ? 'move' : ''}`}>
-                    {/* 로그인 */}
                     <form id="login" onSubmit={handleLogin}>
                         <h3>로그인</h3>
                         <div className="mail">
@@ -89,20 +83,9 @@ const Login = () => {
                             <p>아이디 찾기</p>
                             <p>비밀번호 찾기</p>
                         </div>
-                        <div className="apps">
-                            {/* <p>
-                                <img src="images/login/google.png" alt="" />
-                            </p>
-                            <p>
-                                <img src="images/login/kakao.png" alt="" />
-                            </p>
-                            <p>
-                                <img src="images/login/apple.png" alt="" />
-                            </p> */}
-                        </div>
+                        <div className="apps"></div>
                     </form>
 
-                    {/* 회원가입 */}
                     <form id="register">
                         <h3>회원가입</h3>
                         <div className="submit">
@@ -112,17 +95,7 @@ const Login = () => {
                                 </button>
                             </Link>
                         </div>
-                        <div className="apps">
-                            {/* <p>
-                                <img src="images/login/google.png" alt="" />
-                            </p>
-                            <p>
-                                <img src="images/login/kakao.png" alt="" />
-                            </p>
-                            <p>
-                                <img src="images/login/apple.png" alt="" />
-                            </p> */}
-                        </div>
+                        <div className="apps"></div>
                     </form>
                 </div>
             </div>

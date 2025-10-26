@@ -29,7 +29,6 @@
         text-align: center;
         background-size: cover;
         background-position: center;
-        background-color: #fff;
 
         display: flex;
         flex-flow: row nowrap;
@@ -52,15 +51,13 @@
             flex-direction: row;
         }
         .swiper-slide {
-            // border: 1px solid red;
-            // overflow: hidden;
             width: 175px;
             height: 230px;
             opacity: 0.75;
             cursor: pointer;
             border-radius: 10px;
             img {
-                width: 175px;
+                width: 100%;
                 height: 230px;
                 overflow: hidden;
             }
@@ -148,6 +145,113 @@
         margin-bottom: 30px;
         strong {
             color: #12b560;
+        }
+    }
+}
+@media screen and (max-width: 1023px) {
+    #rankSlider {
+        height: auto;
+        .inner {
+            width: 100%;
+            margin: 0 20px;
+        }
+        .wrap {
+            height: 670px;
+        }
+        .swiper-container {
+            width: 100%;
+            height: auto;
+        }
+
+        .rank-thumbs {
+            display: block;
+            .swiper-slide {
+                height: auto;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        .rightBox {
+            width: 50%;
+            margin-right: 30px;
+            height: 100%;
+
+            .textBox {
+                width: 100%;
+                word-break: keep-all;
+                h2 {
+                    font-size: 30px;
+                    span {
+                        font-size: 18px;
+                    }
+                }
+                .icons {
+                    display: none;
+                }
+                strong {
+                    font-size: 16px;
+                    -webkit-line-clamp: 6;
+                }
+                button {
+                    width: 200px;
+                    font-size: 16px;
+                    height: 46px;
+                }
+            }
+        }
+        h1 {
+            font-size: 40px;
+            margin-left: 120px;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    #rankSlider {
+        .inner {
+            margin: 0;
+        }
+
+        .rank-thumbs {
+            display: block;
+
+            .swiper-slide {
+                height: auto;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        .wrap {
+            display: block;
+            width: 100%;
+            height: auto;
+
+            .swiper-container {
+                width: 100vw;
+                height: 30vh;
+            }
+        }
+        .rightBox {
+            width: 100%;
+            padding: 30px 10px 0;
+            .textBox {
+                height: 350px;
+
+                h2 {
+                    text-align: center;
+                }
+                strong {
+                    font-size: 18px;
+                    margin: 0 20px;
+                }
+                button {
+                    width: 95%;
+                    margin: 30px auto;
+                }
+            }
         }
     }
 }
