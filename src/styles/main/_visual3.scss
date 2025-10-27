@@ -331,6 +331,9 @@
 
                 li {
                     font-size: 24px;
+                    &:last-child {
+                        display: none;
+                    }
                 }
             }
             button {
