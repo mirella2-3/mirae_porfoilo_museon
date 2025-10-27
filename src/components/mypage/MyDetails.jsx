@@ -15,7 +15,7 @@ const MyDetails = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [newNickname, setNewNickname] = useState('');
-    const [profileImg, setProfileImg] = useState('/images/profile.JPG');
+    const [profileImg, setProfileImg] = useState('/images/default_profile.png');
     const fileInputRef = useRef(null);
     const [currentPlan, setCurrentPlan] = useState(1);
     const userInfo = useSelector((state) => state.user.userInfo);
@@ -63,7 +63,7 @@ const MyDetails = () => {
                 <ul className="topWrap">
                     <li className="profileBox">
                         <img
-                            src={userInfo?.profileImg || '/images/profile.JPG'}
+                            src={userInfo?.profileImg || '/images/default_profile.png'}
                             alt="프로필 사진"
                         />
                         <div className="nickname">
