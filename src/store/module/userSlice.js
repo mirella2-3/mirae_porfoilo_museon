@@ -13,7 +13,7 @@ const userSlice = createSlice({
       state.isLoggedIn = true;
       state.userInfo = {
         ...action.payload,
-        profileImg: action.payload.profileImg || "/images/profile.JPG", // 기본 이미지
+        profileImg: action.payload.profileImg || "/images/default_profile.png", // 기본 이미지
       };
       localStorage.setItem("loggedInUser", JSON.stringify(state.userInfo));
     },

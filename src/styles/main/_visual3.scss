@@ -284,7 +284,6 @@
             }
         }
 
-        /* 🎛 버튼 정렬 */
         .visualBtns {
             left: 50%;
             bottom: 40px;
@@ -343,7 +342,7 @@
         .visualBtns {
             left: 50%;
             transform: translateX(-50%);
-            height: 100px;
+            bottom: 0;
         }
         .swiper-button-prev,
         .swiper-button-next {
